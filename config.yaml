@@ -9,11 +9,16 @@
 #-------------[ PATHS ]-------------
 
 # --- Inputs ---
-
 # Change this to your nanodrop data if you are using something else
 raw_fastq_path: "data/raw/CCUG-33829.fastq.gz"
+# MultiQC report paths
+multiqc_input_path: "results/"
 
 # --- Outputs ---
+
+# Output paths for multiQC reports
+multiqc_output_path: "results/multiqc_reports/"
+# Fastplong report paths
 fastplong_output_path: "results/fastplong_output/"
 
 # --- Processed data ---
