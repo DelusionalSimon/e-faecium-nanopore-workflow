@@ -7,6 +7,14 @@
 #------------------------------------
 
 #-------------[ PATHS ]-------------
+
+# --- Inputs ---
+
 # Change this to your nanodrop data if you are using something else
 raw_fastq_path: "data/raw/CCUG-33829.fastq.gz"
 
+# --- Outputs ---
+fastplong_output_path: "results/fastplong_output/"
+
+# --- Processed data ---
+fastplong_filtered_path: "data/processed/CCUG-33829.filtered.fastq.gz"
