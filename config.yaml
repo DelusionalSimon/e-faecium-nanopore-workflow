@@ -1,0 +1,12 @@
+#-------------[ ABOUT ]-------------
+#
+# Config file with settings for the E. faecium nanopore project
+#
+# To adapt to your project change the files and settings below
+#
+#------------------------------------
+
+#-------------[ PATHS ]-------------
+# Change this to your nanodrop data if you are using something else
+raw_fastq_path: "data/raw/CCUG-33829.fastq.gz"
+
