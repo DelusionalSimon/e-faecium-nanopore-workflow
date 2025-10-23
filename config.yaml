@@ -3,6 +3,9 @@
 # Config file with settings for the E. faecium nanopore project
 #
 # To adapt to your project change the files and settings below
+# The paths are relative to the root of the repository
+#
+# The script running on the HPC uses a separate config file: scripts/HPC/HPC_config.py
 #
 #------------------------------------
 
