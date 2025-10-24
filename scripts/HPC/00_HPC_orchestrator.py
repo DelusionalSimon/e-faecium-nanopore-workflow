@@ -12,21 +12,8 @@
 # ----------[IMPORTS]----------
 import os
 import subprocess
-import HPC_config
+import HPC_config as conf
 import argparse
-
-# ----------[CONFIGURATION]----------
-# Load HPC configuration
-logs_path =  HPC_config.LOGS_PATH
-results_path = HPC_config.RESULTS_PATH
-fastq_data = HPC_config.FASTQ_PATH
-
-# Kraken2 parameters
-kraken_output_log = os.path.join(logs_path, "kraken2_%j.out")
-kraken_error_log = os.path.join(logs_path, "kraken2_%j.err")
-kraken_container_path = HPC_config.KRAKEN_CONTAINER_PATH
-kraken_db_path = HPC_config.KRAKEN_DB_PATH
-
 
 
 # ----------[FUNCTIONS]----------
@@ -37,7 +24,36 @@ def submit_kraken2_job():
     @details:   Constructs the sbatch command with appropriate parameters
                 and submits the job using subprocess.
     """
-    pass
+    kraken_command = [
+        "sbatch",
+        # Slurm job specifications
+        f"-A {conf.ALLOCATION}",
+        f"-p {conf.PARTITION}",
+        f"-N=1 --cpus-per-task={conf.KRAKEN_CPUS}",
+        f"-t={conf.KRAKEN_TIME}",
+        f"-J={conf.KRAKEN_JOB_NAME}",
+        f"--output={conf.KRAKEN_OUTPUT_LOG}",
+        f"--error={conf.KRAKEN_ERROR_LOG}",
+        # The script to run
+        conf.KRAKEN_SLURM_PATH,
+        # Arguments to the slurm script
+        conf.KRAKEN_CONTAINER_PATH,
+        conf.KRAKEN_DB_PATH,
+        conf.DATA_PATH,
+        conf.RESULTS_PATH,
+        conf.FILTERED_FASTQ_FILE,
+        conf.KRAKEN_OUTPUT,
+        conf.KRAKEN_REPORT,
+        conf.KRAKEN_CLASSIFIED_FASTQ,
+        conf.KRAKEN_UNCLASSIFIED_FASTQ
+    ]
+    
+    # Submit the job
+    try:
+        subprocess.run(kraken_command, check=True)
+        print("Kraken2 job submitted successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error submitting Kraken2 job: {e}")
 
 
 
@@ -50,6 +66,7 @@ def main():
               to handle command-line arguments for flexibility.
     
     """
+    pass
     
 
 
