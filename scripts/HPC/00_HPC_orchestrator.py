@@ -29,7 +29,7 @@ def submit_kraken2_job():
         # Slurm job specifications
         f"-A {conf.ALLOCATION}",
         f"-p {conf.PARTITION}",
-        "-N=1 ",
+        "-N=1",
         f"--cpus-per-task={conf.KRAKEN_CPUS}",
         f"-t={conf.KRAKEN_TIME}",
         f"-J={conf.KRAKEN_JOB_NAME}",
