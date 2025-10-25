@@ -98,7 +98,30 @@ def main():
               to handle command-line arguments for flexibility.
     
     """
-    pass
+    parser = argparse.ArgumentParser(description="HPC Job Orchestrator")
+    parser.add_argument(
+        "--kraken2",
+        action="store_true",
+        help="Submit Kraken2 classification job"
+    )
+    parser.add_argument(
+        "--flye",
+        action="store_true",
+        help="Submit Flye assembly job"
+    )
+    
+    args = parser.parse_args()
+    
+    if args.kraken2:
+        submit_kraken2_job()
+    
+    if args.flye:
+        submit_flye_job()
+    
+    if not args.kraken2 and not args.flye:
+        print("No jobs specified for submission. Use --kraken2 and/or --flye.")
+    
+
 
 if __name__ == "__main__":
     main()
