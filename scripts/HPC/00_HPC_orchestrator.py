@@ -55,7 +55,39 @@ def submit_kraken2_job():
     except subprocess.CalledProcessError as e:
         print(f"Error submitting Kraken2 job: {e}")
 
-
+def submit_flye_job():
+    """!
+    @brief:     Submits a Flye assembly job to the HPC scheduler.
+    
+    @details:   Constructs the sbatch command with appropriate parameters
+                and submits the job using subprocess.
+    """
+    flye_command = [
+        "sbatch",
+        # Slurm job specifications
+        f"-A {conf.ALLOCATION}",
+        f"-p {conf.PARTITION}",
+        f"-N=1 --cpus-per-task={conf.FLYE_CPUS}",
+        f"-t={conf.FLYE_TIME}",
+        f"-J={conf.FLYE_JOB_NAME}",
+        f"--output={conf.FLYE_OUTPUT_LOG}",
+        f"--error={conf.FLYE_ERROR_LOG}",
+        # The script to run
+        conf.FLYE_SLURM_PATH,
+        # Arguments to the slurm script
+        conf.FLYE_CONTAINER_PATH,
+        conf.DATA_PATH,
+        conf.RESULTS_PATH,
+        conf.FILTERED_FASTQ_FILE,
+        conf.FLYE_ITERATIONS
+    ]
+    
+    # Submit the job
+    try:
+        subprocess.run(flye_command, check=True)
+        print("Flye job submitted successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error submitting Flye job: {e}")
 
 # ----------[MAIN SCRIPT]----------
 def main():
@@ -67,8 +99,6 @@ def main():
     
     """
     pass
-    
-
 
 if __name__ == "__main__":
     main()
