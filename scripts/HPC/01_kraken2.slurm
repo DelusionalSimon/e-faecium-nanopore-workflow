@@ -39,7 +39,7 @@ mkdir -p ${RESULTS_PATH}
 # Run Kraken2 classification
 singularity exec ${CONTAINER_PATH} kraken2 \
         --db /db \
-        --threads $SLURM_CPUS_PER_TASK \
+        --threads ${SLURM_CPUS_PER_TASK} \
         --output /results/${KRAKEN_OUTPUT} \
         --report /results/${KRAKEN_REPORT} \
         --classified-out /results/${KRAKEN_CLASSIFIED_FASTQ} \
