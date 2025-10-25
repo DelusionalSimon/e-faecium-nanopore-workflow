@@ -30,6 +30,8 @@ REAL_OUTPUT_DIR="${RESULTS_PATH}/flye"
 # Create output directory
 mkdir -p ${OUTPUT_DIR}
 
+# ----------[RUN FLYE]----------
+
 # Run Flye assembly with enhanced polishing
 singularity exec ${CONTAINER_PATH} flye --nano-raw /data/${FILTERED_FASTQ_FILE} \
      --out-dir ${REAL_OUTPUT_DIR} \
