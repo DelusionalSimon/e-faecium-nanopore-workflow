@@ -47,4 +47,18 @@ KRAKEN_REPORT = "kraken2_report.txt"
 KRAKEN_CLASSIFIED_FASTQ = "classified.fastq"
 KRAKEN_UNCLASSIFIED_FASTQ = "unclassified.fastq"
 
+# ----------[FLYE PARAMETERS]----------
+# Container
+FLYE_CONTAINER_PATH = "/cephyr/NOBACKUP/groups/n2bin_gu/BIO511/singularity_images/flye.sif"
 
+# Job Specs
+FLYE_CPUS = 12
+FLYE_TIME = "02:30:00"
+FLYE_JOB_NAME = "flye_polished"
+FLYE_OUTPUT_LOG = os.path.join(LOGS_PATH, "flye2_%j.out")
+FLYE_ERROR_LOG = os.path.join(LOGS_PATH, "flye2_%j.err")
+FLYE_SLURM_SCRIPT = "02_flye.slurm"
+FLYE_SLURM_PATH = os.path.join(HPC_STORAGE_DIR, FLYE_SLURM_SCRIPT)
+
+# Settings
+FLYE_ITERATIONS = 5
