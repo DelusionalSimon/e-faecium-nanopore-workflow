@@ -17,7 +17,7 @@ RESULTS_PATH=$2
 QUAST_ASSEMBLY_DIR=$3
 
 # Output
-OUTPUT_DIR="${RESULTS_PATH}/quast_results"
+OUTPUT_DIR="${RESULTS_PATH}/quast"
 
 # Bind paths for container
 export SINGULARITY_BINDPATH="${QUAST_ASSEMBLY_DIR}:/assembly,${OUTPUT_DIR}:/output"
