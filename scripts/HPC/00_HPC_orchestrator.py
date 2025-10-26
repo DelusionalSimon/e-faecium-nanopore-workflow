@@ -27,14 +27,14 @@ def submit_kraken2_job():
     kraken_command = [
         "sbatch",
         # Slurm job specifications
-        f"-A {conf.ALLOCATION}",
-        f"-p {conf.PARTITION}",
-        "-N=1",
-        f"--cpus-per-task={conf.KRAKEN_CPUS}",
-        f"-t={conf.KRAKEN_TIME}",
-        f"-J={conf.KRAKEN_JOB_NAME}",
-        f"--output={conf.KRAKEN_OUTPUT_LOG}",
-        f"--error={conf.KRAKEN_ERROR_LOG}",
+        "-A", conf.ALLOCATION,
+        "-p", conf.PARTITION,
+        "-N", "1",
+        "--cpus-per-task", str(conf.KRAKEN_CPUS),
+        "-t", conf.KRAKEN_TIME,
+        "-J", conf.KRAKEN_JOB_NAME,
+        "--output", conf.KRAKEN_OUTPUT_LOG,
+        "--error", conf.KRAKEN_ERROR_LOG,
         # The script to run
         conf.KRAKEN_SLURM_PATH,
         # Arguments to the slurm script
@@ -66,14 +66,14 @@ def submit_flye_job():
     flye_command = [
         "sbatch",
         # Slurm job specifications
-        f"-A {conf.ALLOCATION}",
-        f"-p {conf.PARTITION}",
-        "-N=1",
-        f"--cpus-per-task={conf.FLYE_CPUS}",
-        f"-t={conf.FLYE_TIME}",
-        f"-J={conf.FLYE_JOB_NAME}",
-        f"--output={conf.FLYE_OUTPUT_LOG}",
-        f"--error={conf.FLYE_ERROR_LOG}",
+        "-A", conf.ALLOCATION,
+        "-p", conf.PARTITION,
+        "-N", "1",
+        "--cpus-per-task", str(conf.FLYE_CPUS),
+        "-t", conf.FLYE_TIME,
+        "-J", conf.FLYE_JOB_NAME,
+        "--output", conf.FLYE_OUTPUT_LOG,
+        "--error", conf.FLYE_ERROR_LOG,
         # The script to run
         conf.FLYE_SLURM_PATH,
         # Arguments to the slurm script
@@ -81,7 +81,7 @@ def submit_flye_job():
         conf.DATA_PATH,
         conf.RESULTS_PATH,
         conf.FILTERED_FASTQ_FILE,
-        conf.FLYE_ITERATIONS
+        str(conf.FLYE_ITERATIONS)
     ]
     
     # Submit the job
