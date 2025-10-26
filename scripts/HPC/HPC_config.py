@@ -62,3 +62,19 @@ FLYE_SLURM_PATH = os.path.join(HPC_STORAGE_DIR, FLYE_SLURM_SCRIPT)
 
 # Settings
 FLYE_ITERATIONS = 5
+
+# ----------[QUAST PARAMETERS]----------
+# Container
+QUAST_CONTAINER_PATH = "/cephyr/NOBACKUP/groups/n2bin_gu/BIO511/singularity_images/quast.sif"
+
+# Job Specs
+QUAST_CPUS = 4
+QUAST_TIME = "01:00:00"
+QUAST_JOB_NAME = "quast_analysis"
+QUAST_OUTPUT_LOG = os.path.join(LOGS_PATH, "quast2_%j.out")
+QUAST_ERROR_LOG = os.path.join(LOGS_PATH, "quast2_%j.err")
+QUAST_SLURM_SCRIPT = "03_quast.slurm"
+QUAST_SLURM_PATH = os.path.join(HPC_STORAGE_DIR, QUAST_SLURM_SCRIPT)
+
+# Input
+QUAST_ASSEMBLY_DIR = os.path.join(RESULTS_PATH, "flye")

@@ -91,6 +91,39 @@ def submit_flye_job():
     except subprocess.CalledProcessError as e:
         print(f"Error submitting Flye job: {e}")
 
+def submit_quast_job():
+    """!
+    @brief:     Submits a QUAST analysis job to the HPC scheduler.
+    
+    @details:   Constructs the sbatch command with appropriate parameters
+                and submits the job using subprocess.
+    """
+    quast_command = [
+        "sbatch",
+        # Slurm job specifications
+        "-A", conf.ALLOCATION,
+        "-p", conf.PARTITION,
+        "-N", "1",
+        "--cpus-per-task", str(conf.QUAST_CPUS),
+        "-t", conf.QUAST_TIME,
+        "-J", conf.QUAST_JOB_NAME,
+        "--output", conf.QUAST_OUTPUT_LOG,
+        "--error", conf.QUAST_ERROR_LOG,
+        # The script to run
+        conf.QUAST_SLURM_PATH,
+        # Arguments to the slurm script
+        conf.QUAST_CONTAINER_PATH,
+        conf.RESULTS_PATH,
+        conf.QUAST_ASSEMBLY_DIR
+    ]
+    
+    # Submit the job
+    try:
+        subprocess.run(quast_command, check=True)
+        print("QUAST job submitted successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error submitting QUAST job: {e}")
+
 # ----------[MAIN SCRIPT]----------
 def main():
     """!
@@ -111,6 +144,11 @@ def main():
         action="store_true",
         help="Submit Flye assembly job"
     )
+    parser.add_argument(
+        "--quast",
+        action="store_true",
+        help="Submit QUAST analysis job"
+    )
     
     args = parser.parse_args()
     
@@ -120,10 +158,12 @@ def main():
     if args.flye:
         submit_flye_job()
     
-    if not args.kraken2 and not args.flye:
-        print("No jobs specified for submission. Use --kraken2 and/or --flye.")
-    
+    if args.quast:
+        submit_quast_job()
 
+    else:
+        print("No jobs specified for submission. Use --kraken2, --flye, or --quast.")
+    
 
 if __name__ == "__main__":
     main()
