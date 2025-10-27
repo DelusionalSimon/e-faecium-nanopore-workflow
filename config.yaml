@@ -16,13 +16,18 @@
 raw_fastq_path: "data/raw/CCUG-33829.fastq.gz"
 # MultiQC report paths
 multiqc_input_path: "results/"
+# Bakta database path
+bakta_db_path: "/data/bakta_database/"
+# Bakta input genome path
+bakta_input_path: "data/processed/assembly.fasta"
 
 # --- Outputs ---
-
 # Output paths for multiQC reports
 multiqc_output_path: "results/multiqc_reports/"
 # Fastplong report paths
 fastplong_output_path: "results/fastplong_output/"
+# Bakta output path
+bakta_output_path: "results/bakta_output/"
 
 # --- Processed data ---
 fastplong_filtered_path: "data/processed/CCUG-33829.filtered.fastq.gz"
