@@ -9,7 +9,6 @@
 #
 #------------------------------------
 
-#-------------[ PATHS ]-------------
 
 # --- Inputs ---
 # Change this to your nanodrop data if you are using something else
@@ -29,8 +28,10 @@ fastplong_output_path: "results/fastplong_output/"
 # Bakta output path
 bakta_output_path: "results/bakta_output/"
 # AMRFinderPlus output path
-amrfinder_output_folder: "results/amrfinder_output/"
-amrfinder_output_file: "CCUG-33829_amrfinder.tsv" 
+amrfinder_output_file: "results/amrfinder.tsv" 
+# MLST output path
+mlst_output_file: "results/mlst.txt"
+
 
 # --- Processed data ---
 fastplong_filtered_path: "data/processed/CCUG-33829.filtered.fastq.gz"
