@@ -18,11 +18,11 @@ This project is built within a reproducible environment using the following key 
 ## Roadmap
 [x] Project Setup & README Creation
 
-[ ] Phase 1: Implement QC Scripts
+[x] Phase 1: Implement QC Scripts
 
-[ ] Phase 2: Implement Assembly & Polishing Scripts
+[x] Phase 2: Implement Assembly & Polishing Scripts
 
-[ ] Phase 3: Implement Annotation Scripts
+[x] Phase 3: Implement Annotation Scripts
 
 [ ] Phase 4: Implement Comparative Analysis Scripts
 
