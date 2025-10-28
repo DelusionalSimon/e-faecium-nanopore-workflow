@@ -28,6 +28,9 @@ multiqc_output_path: "results/multiqc_reports/"
 fastplong_output_path: "results/fastplong_output/"
 # Bakta output path
 bakta_output_path: "results/bakta_output/"
+# AMRFinderPlus output path
+amrfinder_output_folder: "results/amrfinder_output/"
+amrfinder_output_file: "CCUG-33829_amrfinder.tsv" 
 
 # --- Processed data ---
 fastplong_filtered_path: "data/processed/CCUG-33829.filtered.fastq.gz"
