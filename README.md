@@ -30,13 +30,18 @@ The workflow is as follows:
 The raw sequencing data for this project is not publicly archived. The raw .fastq file may be made available upon reasonable request.
 
 ### Clone this repository:
-    git clone https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git
+Run 
+```git clone https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git``` where you want to download the project
 
-    cd e-faecium-nanopore-workflow 
+
+followed by ```cd e-faecium-nanopore-workflow``` to enter the folder.  
 
 ## Run the workflow in the Jupyter notebook
 
 [Enter Complete_analysis.ipynb notebook](/notebooks/Complete_Analysis.ipynb)
 
+
 ## License
-Distributed under the MIT License. See LICENSE.txt for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
