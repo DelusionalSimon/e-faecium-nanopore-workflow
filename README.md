@@ -26,6 +26,11 @@ The workflow is as follows:
 * Access to a Slurm-based HPC (or a modification of `HPC_orchestrator.py` and the `.slurm` scripts to run them locally on your system)
 * Raw sequencing data.
 
+### HPC Container Setup
+The HPC workflow runs all tools (Kraken2, Flye, QUAST) inside Singularity containers. Such containers can be accessed from the BioContainers project.
+
+Before running the HPC scripts, you must pull the necessary containers to your cluster, this can be done with the `singularity pull` command. Then you need to specify their paths in `HPC_config.py`. 
+
 ### Data Availability
 The raw sequencing data for this project is not publicly archived. The raw .fastq file may be made available upon reasonable request.
 
