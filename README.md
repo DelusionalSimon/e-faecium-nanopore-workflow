@@ -12,10 +12,10 @@ This workflow is an archive intended to ensure full reproducibility of the paper
 This pipeline processes raw Oxford Nanopore `.fastq` reads to produce a fully assembled and annotated genome, complete with resistome and virulence factor identification.
 
 The workflow is as follows:
-1.  **QC:** Raw reads are filtered for quality using `fastplong`.
-2.  **HPC Assembly:** Filtered reads are assembled on an HPC using `Flye` and `Kraken2` (for contamination checks).
-3.  **QC Assessment:** The assembly is assessed using `QUAST`.
-4.  **Annotation:** The final assembly is annotated with `Bakta` (for the full genome), `AMRFinderPlus` (for the resistome), `mlst` (for sequence typing), and `PlasmidFinder` (for replicons).
+1.  **Local Filtering and QC:** Raw reads are filtered for quality using `fastplong`.
+2.  **HPC workflow:** `Kraken2` is used to verify the species of the isolate and check for contamination. Filtered reads are assembled on an HPC using `Flye`. This assembly is quality controlled using `QUAST`. 
+4.  **Local Annotation and Typing:** The final assembly is annotated with `Bakta` (for the full genome) and `AMRFinderPlus` (for the resistome). `mlst` is utilized to find the sequence type.
+5.  **Web Based Analysis:** The `PlasmidFinder` web tool is used to identify replicons on the plasmids. `Gemini` is used to identify interesting operons and gene clusters using the annotated data.   
 
 
 ## How to Reproduce This Analysis
