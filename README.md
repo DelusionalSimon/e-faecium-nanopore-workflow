@@ -1,10 +1,10 @@
 # Unmasking a Superbug: *E. faecium* ST177 Workflow
 
-This repository contains the complete computational workflow used to assemble and analyze the genome of a Vancomycin-Resistant *Enterococcus faecium* ST177 isolate, as detailed in the paper:
+This repository contains the complete, end-to-end computational workflow used to assemble and analyze the genome of a Vancomycin-Resistant *Enterococcus faecium* ST177 isolate.
 
-**Unmasking a Superbug: Nanopore Sequencing Reveals Chromosomal *vanB* and Resistance Plasmids in VRE *Enterococcus faecium* ST177**
+It serves as a **reproducible case study** for a full genomic analysis, from raw Oxford Nanopore reads to a final annotated assembly, including resistome and virulence factor identification.
 
-This workflow is an archive intended to ensure full reproducibility of the paper's findings.
+It can be used to run similar analyses using your own or publicly available long read data in a `.fastq` format. 
 
 
 ## Workflow Overview
@@ -18,8 +18,6 @@ The workflow is as follows:
 5.  **Web Based Analysis:** The `PlasmidFinder` web tool is used to identify replicons on the plasmids. `Gemini` is used to identify interesting operons and gene clusters using the annotated data.   
 
 
-## How to Reproduce This Analysis
-
 ### Prerequisites
 * [Conda](https://docs.conda.io/en/latest/miniconda.html)
 * [Singularity](https://sylabs.io/docs/) (for the HPC steps)
@@ -30,9 +28,6 @@ The workflow is as follows:
 The HPC workflow runs all tools (Kraken2, Flye, QUAST) inside Singularity containers. Such containers can be accessed from the BioContainers project.
 
 Before running the HPC scripts, you must pull the necessary containers to your cluster, this can be done with the `singularity pull` command. Then you need to specify their paths in `HPC_config.py`. 
-
-### Data Availability
-The raw sequencing data for this project is not publicly archived. The raw .fastq file may be made available upon reasonable request.
 
 ### Clone this repository:
 Run 
