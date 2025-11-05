@@ -16,7 +16,6 @@ The workflow is as follows:
 2.  **HPC Assembly:** Filtered reads are assembled on an HPC using `Flye` and `Kraken2` (for contamination checks).
 3.  **QC Assessment:** The assembly is assessed using `QUAST`.
 4.  **Annotation:** The final assembly is annotated with `Bakta` (for the full genome), `AMRFinderPlus` (for the resistome), `mlst` (for sequence typing), and `PlasmidFinder` (for replicons).
-5. **Analysis:**
 
 
 ## How to Reproduce This Analysis
@@ -24,14 +23,14 @@ The workflow is as follows:
 ### Prerequisites
 * [Conda](https://docs.conda.io/en/latest/miniconda.html)
 * [Singularity](https://sylabs.io/docs/) (for the HPC steps)
-* Access to a Slurm-based HPC (or modification of the `.slurm` scripts for your system)
-* The raw sequencing data.
+* Access to a Slurm-based HPC (or a modification of `HPC_orchestrator.py` and the `.slurm` scripts to run them locally on your system)
+* Raw sequencing data.
 
 ### Data Availability
-The raw sequencing data for this project is not publicly archived yet. The raw .fastq file may be made available upon reasonable request to the corresponding author.
+The raw sequencing data for this project is not publicly archived. The raw .fastq file may be made available upon reasonable request.
 
 ### Clone this repository:
-    git https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git
+    git clone https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git
 
     cd e-faecium-nanopore-workflow 
 
