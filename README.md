@@ -14,15 +14,15 @@ This pipeline processes raw Oxford Nanopore `.fastq` reads to produce a fully as
 The workflow is as follows:
 1.  **Local Filtering and QC:** Raw reads are filtered for quality using `fastplong`.
 2.  **HPC workflow:** `Kraken2` is used to verify the species of the isolate and check for contamination. Filtered reads are assembled on an HPC using `Flye`. This assembly is quality controlled using `QUAST`. 
-4.  **Local Annotation and Typing:** The final assembly is annotated with `Bakta` (for the full genome) and `AMRFinderPlus` (for the resistome). `mlst` is utilized to find the sequence type.
-5.  **Web Based Analysis:** The `PlasmidFinder` web tool is used to identify replicons on the plasmids. `Gemini` is used to identify interesting operons and gene clusters using the annotated data.   
+3.  **Local Annotation and Typing:** The final assembly is annotated with `Bakta` (for the full genome) and `AMRFinderPlus` (for the resistome). `mlst` is utilized to find the sequence type.
+4.  **Web Based Analysis:** The `PlasmidFinder` web tool is used to identify replicons on the plasmids. `Gemini` is used to identify interesting operons and gene clusters using the annotated data.   
 
 
 ### Prerequisites
 * [Conda](https://docs.conda.io/en/latest/miniconda.html)
 * [Singularity](https://sylabs.io/docs/) (for the HPC steps)
 * Access to a Slurm-based HPC (or a modification of `HPC_orchestrator.py` and the `.slurm` scripts to run them locally on your system)
-* Raw sequencing data.
+* A unix based system like WSL
 
 ### HPC Container Setup
 The HPC workflow runs all tools (Kraken2, Flye, QUAST) inside Singularity containers. Such containers can be accessed from the BioContainers project.
@@ -31,14 +31,22 @@ Before running the HPC scripts, you must pull the necessary containers to your c
 
 ### Clone this repository:
 Run 
-```git clone https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git``` where you want to download the project
+```git clone https://github.com/DelusionalSimon/e-faecium-nanopore-workflow.git``` in your command line where you want to download the project
 
 
 followed by ```cd e-faecium-nanopore-workflow``` to enter the folder.  
 
-## Run the workflow in the Jupyter notebook
+### Set up the environment
+Create the conda environment by running `conda env create -f environment.yml` in the terminal
 
-[Enter Complete_analysis.ipynb notebook](/notebooks/Complete_Analysis.ipynb)
+Activate the environment by running `conda activate efaecium_env`
+
+Use this environment as the kernel for the jupyter notebook below.
+
+## Run the workflow in the Jupyter notebook
+Move on to the Jupyter Notebook detailing the whole workflow:
+
+[Complete Analysis Notebook](/notebooks/Complete_Analysis.ipynb)
 
 
 ## License
